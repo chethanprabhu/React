@@ -1,1 +1,1 @@
-This is not any project. This is just for me to practice React concepts
+This is not a project. This is just for me to practice React concepts.
