@@ -1,6 +1,7 @@
 import React from 'react'
 
 const Person = (props) => {
+    /*props is an object that contains the the details we sent during using that component as key-value pair */
     return (
         <div>
             <p>Hello! My name is {props.name} and I'm {props.age} years old. {props.children}</p> 
