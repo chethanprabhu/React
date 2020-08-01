@@ -11,11 +11,16 @@ const App = () => {
 */
 class App extends Component {
     render() {
+        /* 
         return(
-            <div className="backColor">
+            <div class="backColor">
                 <h1>Hello world</h1>
             </div>
         )
+        */
+       /* The above JSX is exactly same as below line. Since the below line would be horrible for programmers to write. React developers decided 
+       to give it a HTML like syntax */
+       return React.createElement("div", {className: "backColor"},React.createElement("h1", null , "Hello world"));
     }
 }
  
