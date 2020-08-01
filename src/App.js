@@ -13,7 +13,7 @@ class App extends Component {
     render() {
         /* 
         return(
-            <div class="backColor">
+            <div className="backColor">
                 <h1>Hello world</h1>
             </div>
         )
