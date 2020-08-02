@@ -79,6 +79,7 @@ class App extends Component {
 
         this.setState(
             {
+                //if it's false it becomes true and vice versa. The equivalent code for it is above commented
                 showPersons: !this.state.showPersons
             }
         )
@@ -89,6 +90,7 @@ class App extends Component {
         return (
             <div>
                 {
+                    //This is ternery check. If the flag 'this.state.showPersons' is true then it displays the persons else hides it(null).
                     this.state.showPersons ?
                     <div>
                         <Person name={this.state.persons[0].name} age={this.state.persons[0].age} updateName={this.updateNameHandler}/>
