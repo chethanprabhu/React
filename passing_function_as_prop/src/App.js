@@ -51,6 +51,7 @@ class App extends Component {
         this.setState(
             {
                 persons: [
+                    /*e.target.value will contain value entered in currently selected element i.e input field in this case */
                     {name: e.target.value, age: 24},
                     {name: "Akshay", age: 24},
                     {name: "Pavan", age: 24},
