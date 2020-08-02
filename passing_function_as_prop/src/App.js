@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import Person from "./Person/Person"
+import Person from "./Person/Person";
+import Button from "./Button/Button";
 
 class App extends Component {
 
@@ -54,8 +55,8 @@ class App extends Component {
                 <Person name={this.state.persons[2].name} age={this.state.persons[2].age}/>
                 <Person name={this.state.persons[3].name} age={this.state.persons[3].age}/>
                 <p>{this.state.whoAreWe}</p>
-                <button onClick={this.getFullNameHandler}>Get Full Name</button>
-                <button onClick={this.getShortNameHandler}>Get Short Name</button>
+                <Button onClickHandlerFunc={this.getFullNameHandler} buttonName="Get Full Name"/>
+                <Button onClickHandlerFunc={this.getShortNameHandler} buttonName="Get Short Name"/>
             </div>
         )
     }
