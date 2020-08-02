@@ -21,14 +21,14 @@ class App extends Component {
     we want to update. Remember if there are any additional states in original state, it won't be altered. Only thing is whatever u pass in 
     setState gets merged with original state. In this case the original state and setState had same person array. Hence, it just overrided
     the same object and updated it with these new values. However the 'whoAreWe' would still remain unchanged. */
-    getFullNameHandler = () => {
+    getFullNameHandler = (appendMR) => {
         this.setState(
             {
                 persons: [
-                    {name: "Chethan Prabhu", age: 24},
-                    {name: "Akshay Pai", age: 24},
-                    {name: "Pavan Pai", age: 24},
-                    {name: "Akshay Shenoy", age: 24}
+                    {name: `${appendMR} Chethan Prabhu`, age: 24},
+                    {name: `${appendMR} Akshay Pai`, age: 24},
+                    {name: `${appendMR} Pavan Pai`, age: 24},
+                    {name: `${appendMR} Akshay shenoy`, age: 24}
                 ]
             }
         )
@@ -55,7 +55,7 @@ class App extends Component {
                 <Person name={this.state.persons[2].name} age={this.state.persons[2].age}/>
                 <Person name={this.state.persons[3].name} age={this.state.persons[3].age}/>
                 <p>{this.state.whoAreWe}</p>
-                <Button onClickHandlerFunc={this.getFullNameHandler} buttonName="Get Full Name"/>
+                <Button onClickHandlerFunc={() => this.getFullNameHandler("Mr.")} buttonName="Get Full Name"/>
                 <Button onClickHandlerFunc={this.getShortNameHandler} buttonName="Get Short Name"/>
             </div>
         )
