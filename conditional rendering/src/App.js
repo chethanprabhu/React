@@ -87,19 +87,23 @@ class App extends Component {
     }
 
     render() {
+
+        let persons = null;
+
+        if(this.state.showPersons) {
+            persons = (
+                <div>
+                    <Person name={this.state.persons[0].name} age={this.state.persons[0].age} updateName={this.updateNameHandler}/>
+                    <Person name={this.state.persons[1].name} age={this.state.persons[1].age}/>
+                    <Person name={this.state.persons[2].name} age={this.state.persons[2].age}/>
+                    <Person name={this.state.persons[3].name} age={this.state.persons[3].age}/>
+                </div>
+            )
+        }
+       
         return (
             <div>
-                {
-                    //This is ternery check. If the flag 'this.state.showPersons' is true then it displays the persons else hides it(null).
-                    this.state.showPersons ?
-                    <div>
-                        <Person name={this.state.persons[0].name} age={this.state.persons[0].age} updateName={this.updateNameHandler}/>
-                        <Person name={this.state.persons[1].name} age={this.state.persons[1].age}/>
-                        <Person name={this.state.persons[2].name} age={this.state.persons[2].age}/>
-                        <Person name={this.state.persons[3].name} age={this.state.persons[3].age}/>
-                    </div> :
-                    null
-                }
+                {persons}
                 <p>{this.state.Note}</p>
                 <Button onClickHandlerFunc={this.getFullNameHandler.bind(this, "Mr.")} buttonName="Get Full Name"/>
                 <Button onClickHandlerFunc={this.getShortNameHandler} buttonName="Get Short Name"/>
