@@ -13,7 +13,8 @@ class App extends Component {
             {name: "Pavan", age: 24},
             {name: "Akshay", age: 24}
         ],
-        Note: "Only Chethan's name can be changed through input button"
+        Note: "Only Chethan's name can be changed through input button",
+        showPersons: false
     }
     
     /*This getFullNameHandler can be any name given by the developer. But it's a good practice to append the word 'handler' at the end
@@ -61,16 +62,46 @@ class App extends Component {
         )
     }
 
+    showHideHandler = () => {
+        // if(this.state.showPersons) {
+        //     this.setState(
+        //         {
+        //             showPersons: false
+        //         }
+        //     )
+        // } else {
+        //     this.setState(
+        //         {
+        //             showPersons: true
+        //         }
+        //     )
+        // }
+
+        this.setState(
+            {
+                showPersons: !this.state.showPersons
+            }
+        )
+        
+    }
+
     render() {
         return (
             <div>
-                <Person name={this.state.persons[0].name} age={this.state.persons[0].age} updateName={this.updateNameHandler}/>
-                <Person name={this.state.persons[1].name} age={this.state.persons[1].age}/>
-                <Person name={this.state.persons[2].name} age={this.state.persons[2].age}/>
-                <Person name={this.state.persons[3].name} age={this.state.persons[3].age}/>
+                {
+                    this.state.showPersons ?
+                    <div>
+                        <Person name={this.state.persons[0].name} age={this.state.persons[0].age} updateName={this.updateNameHandler}/>
+                        <Person name={this.state.persons[1].name} age={this.state.persons[1].age}/>
+                        <Person name={this.state.persons[2].name} age={this.state.persons[2].age}/>
+                        <Person name={this.state.persons[3].name} age={this.state.persons[3].age}/>
+                    </div> :
+                    null
+                }
                 <p>{this.state.Note}</p>
                 <Button onClickHandlerFunc={this.getFullNameHandler.bind(this, "Mr.")} buttonName="Get Full Name"/>
                 <Button onClickHandlerFunc={this.getShortNameHandler} buttonName="Get Short Name"/>
+                <Button onClickHandlerFunc={this.showHideHandler} buttonName="Show/Hide"/>
             </div>
         )
     }
