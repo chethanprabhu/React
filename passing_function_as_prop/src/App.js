@@ -55,11 +55,10 @@ class App extends Component {
                 <Person name={this.state.persons[2].name} age={this.state.persons[2].age}/>
                 <Person name={this.state.persons[3].name} age={this.state.persons[3].age}/>
                 <p>{this.state.whoAreWe}</p>
-                <Button onClickHandlerFunc={() => this.getFullNameHandler("Mr.")} buttonName="Get Full Name"/>
+                <Button onClickHandlerFunc={this.getFullNameHandler.bind(this, "Mr.")} buttonName="Get Full Name"/>
                 <Button onClickHandlerFunc={this.getShortNameHandler} buttonName="Get Short Name"/>
             </div>
         )
     }
 }
-
 export default App;
