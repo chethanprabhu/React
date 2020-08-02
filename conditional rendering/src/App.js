@@ -88,6 +88,9 @@ class App extends Component {
 
     render() {
 
+        /*Remember when the state changes, entire screen is rerendered. Hence this render function will run
+        First thing it does here is assign persons to null. Then it checks if this.state.showPersons is true
+        If true then it assigns the persons else it will stay null. */
         let persons = null;
 
         if(this.state.showPersons) {
@@ -103,6 +106,7 @@ class App extends Component {
        
         return (
             <div>
+                {/* Here as you can see we just write {persons}. This is well organised compared to previous approach*/}
                 {persons}
                 <p>{this.state.Note}</p>
                 <Button onClickHandlerFunc={this.getFullNameHandler.bind(this, "Mr.")} buttonName="Get Full Name"/>
