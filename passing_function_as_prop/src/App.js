@@ -13,7 +13,7 @@ class App extends Component {
             {name: "Pavan", age: 24},
             {name: "Akshay", age: 24}
         ],
-        whoAreWe: "Best Buddies"
+        Note: "Only Chethan's name can be changed through input button"
     }
     
     /*This getFullNameHandler can be any name given by the developer. But it's a good practice to append the word 'handler' at the end
@@ -47,14 +47,27 @@ class App extends Component {
         )
     }
 
+    updateNameHandler = (e) => {
+        this.setState(
+            {
+                persons: [
+                    {name: e.target.value, age: 24},
+                    {name: "Akshay", age: 24},
+                    {name: "Pavan", age: 24},
+                    {name: "Akshay", age: 24}
+                ]
+            }
+        )
+    }
+
     render() {
         return (
             <div>
-                <Person name={this.state.persons[0].name} age={this.state.persons[0].age}/>
+                <Person name={this.state.persons[0].name} age={this.state.persons[0].age} updateName={this.updateNameHandler}/>
                 <Person name={this.state.persons[1].name} age={this.state.persons[1].age}/>
                 <Person name={this.state.persons[2].name} age={this.state.persons[2].age}/>
                 <Person name={this.state.persons[3].name} age={this.state.persons[3].age}/>
-                <p>{this.state.whoAreWe}</p>
+                <p>{this.state.Note}</p>
                 <Button onClickHandlerFunc={this.getFullNameHandler.bind(this, "Mr.")} buttonName="Get Full Name"/>
                 <Button onClickHandlerFunc={this.getShortNameHandler} buttonName="Get Short Name"/>
             </div>
