@@ -8,10 +8,10 @@ class App extends Component {
     a string, a number or a boolean, a function, etc etc anything */
     state = {
         persons: [
-            {name: "Chethan", age: 24},
-            {name: "Akshay", age: 24},
-            {name: "Pavan", age: 24},
-            {name: "Akshay", age: 24}
+            {id:11231, name: "Chethan", age: 24},
+            {id:21241, name: "Akshay", age: 24},
+            {id:11253, name: "Pavan", age: 24},
+            {id:51414, name: "Akshay", age: 24}
         ],
         Note: "Only Chethan's name can be changed through input button",
         showPersons: false
@@ -48,18 +48,19 @@ class App extends Component {
         )
     }
 
-    updateNameHandler = (e) => {
-        this.setState(
-            {
-                persons: [
-                    /*e.target.value will contain value entered in currently selected element i.e input field in this case */
-                    {name: e.target.value, age: 24},
-                    {name: "Akshay", age: 24},
-                    {name: "Pavan", age: 24},
-                    {name: "Akshay", age: 24}
-                ]
-            }
-        )
+    updateNameHandler = (e, key) => {
+        const personIndex = this.state.persons.findIndex((el) => {
+            return el.id === key;
+        })
+
+        const person = {...this.state.persons[personIndex]};
+
+        person.name = e.target.value;
+
+        const persons = [...this.state.persons];
+        persons[personIndex] = person;
+        
+        this.setState({persons: persons})
     }
 
     showHideHandler = () => {
@@ -86,6 +87,12 @@ class App extends Component {
         
     }
 
+    deleteOnClickHandler = (index) => {
+        const persons = [...this.state.persons]
+        persons.splice(index,1);
+        this.setState({persons: persons});
+    }
+
     render() {
 
         /*Remember when the state changes, entire screen is rerendered. Hence this render function will run
@@ -96,10 +103,15 @@ class App extends Component {
         if(this.state.showPersons) {
             persons = (
                 <div>
-                    <Person name={this.state.persons[0].name} age={this.state.persons[0].age} updateName={this.updateNameHandler}/>
-                    <Person name={this.state.persons[1].name} age={this.state.persons[1].age}/>
-                    <Person name={this.state.persons[2].name} age={this.state.persons[2].age}/>
-                    <Person name={this.state.persons[3].name} age={this.state.persons[3].age}/>
+                    {this.state.persons.map((el, index) => {
+                        return <Person 
+                                name={el.name}
+                                age={el.name}
+                                key={el.id}
+                                onClick={this.deleteOnClickHandler.bind(this, index)}
+                                onEdit={(e) => {this.updateNameHandler(e, el.id)}}
+                               />
+                    })}
                 </div>
             )
         }
