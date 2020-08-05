@@ -101,7 +101,9 @@ class App extends Component {
 
     render() {
 
-       
+        const style = {
+            color: 'green'
+        };
     
 
         /*Remember when the state changes, entire screen is rerendered. Hence this render function will run
@@ -128,14 +130,20 @@ class App extends Component {
                     })}
                 </div>
             )
-            
+            if(this.state.persons.length <4 || this.state.persons.length <1) {
+                style.color = 'orange';
+            }
+
+            if(this.state.persons.length === 1) {
+                style.color = 'red';
+            }
         }
        
         return (
             <div>
                 {/* Here as you can see we just write {persons}. This is well organised compared to previous approach*/}
                 {persons}
-                <p>SOME RANDOM TEXT</p>
+                <p style={style}>SOME RANDOM TEXT</p>
                 <Button onClickHandlerFunc={this.getFullNameHandler.bind(this, "Mr.")} buttonName="Get Full Name"/>
                 <Button onClickHandlerFunc={this.getShortNameHandler} buttonName="Get Short Name"/>
                 <Button onClickHandlerFunc={this.showHideHandler} buttonName="Show/Hide"/>
