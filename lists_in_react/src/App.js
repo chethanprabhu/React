@@ -112,7 +112,7 @@ class App extends Component {
                     {this.state.persons.map((el, index) => {
                         return <Person 
                                 name={el.name}
-                                age={el.name}
+                                age={el.age}
                                 /*key is important to uniquely identify an element. So that the render function can only render that particular
                                 element and not the entire DOM.*/
                                 key={el.id}
