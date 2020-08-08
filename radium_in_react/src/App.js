@@ -104,6 +104,7 @@ class App extends Component {
 
         const style = {
             color: 'green',
+            //This hover can't be used just like that. We are able to do it here since we installed additional library 'radium'
             ':hover': {
                 color: 'black',
             }
