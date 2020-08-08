@@ -106,9 +106,6 @@ class App extends Component {
             color: 'green',
             ':hover': {
                 color: 'black',
-            },
-            '@media (min-width: 500px)': {
-                color: 'pink'
             }
         };
     
@@ -145,9 +142,6 @@ class App extends Component {
 
             if(this.state.persons.length === 1) {
                 style.color = 'red';
-                style[":hover"] = {
-                    color: "blue"
-                }
             }
         }
        
