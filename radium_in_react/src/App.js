@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Person from "./Person/Person";
 import Button from "./Button/Button";
+import Radium, {StyleRoot} from "radium";
 
 class App extends Component {
 
@@ -102,7 +103,13 @@ class App extends Component {
     render() {
 
         const style = {
-            color: 'green'
+            color: 'green',
+            ':hover': {
+                color: 'black',
+            },
+            '@media (min-width: 500px)': {
+                color: 'pink'
+            }
         };
     
 
@@ -138,19 +145,24 @@ class App extends Component {
 
             if(this.state.persons.length === 1) {
                 style.color = 'red';
+                style[":hover"] = {
+                    color: "blue"
+                }
             }
         }
        
         return (
-            <div>
-                {/* Here as you can see we just write {persons}. This is well organised compared to previous approach*/}
-                {persons}
-                <p style={style}>SOME RANDOM TEXT</p>
-                <Button onClickHandlerFunc={this.getFullNameHandler.bind(this, "Mr.")} buttonName="Get Full Name"/>
-                <Button onClickHandlerFunc={this.getShortNameHandler} buttonName="Get Short Name"/>
-                <Button onClickHandlerFunc={this.showHideHandler} buttonName="Show/Hide"/>
-            </div>
-        )
+            <StyleRoot>
+                <div>
+                    {/* Here as you can see we just write {persons}. This is well organised compared to previous approach*/}
+                    {persons}
+                    <p style={style}>SOME RANDOM TEXT</p>
+                    <Button onClickHandlerFunc={this.getFullNameHandler.bind(this, "Mr.")} buttonName="Get Full Name"/>
+                    <Button onClickHandlerFunc={this.getShortNameHandler} buttonName="Get Short Name"/>
+                    <Button onClickHandlerFunc={this.showHideHandler} buttonName="Show/Hide"/>
+                </div>
+            </StyleRoot>
+        );
     }
 }
-export default App;
+export default Radium(App);
