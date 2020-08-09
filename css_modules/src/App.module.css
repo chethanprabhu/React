@@ -7,3 +7,5 @@
 .red {
     color: red;
 }
+
+/* CSS modules are special type of files where the styling is applied only to that particular component */

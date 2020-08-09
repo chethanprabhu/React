@@ -20,3 +20,7 @@ This is not a project. This is just for me to practice React concepts.
 4) Another alternative to Radium is Styled-components. One reason why developers would love Styled-components is that you dont have to worry
    about the classNames. Styled components gives the unique classnames for your HTML and also you don't need to fear about your styled getting
    overridden by another style. Styled components takes care of this for us. But I usually prefer external CSS modules. Which keeps the code more cleaner in my opinion.
+
+5) CSS modules is similar to Styled components where we can get unique classnames and that css will be applied only to that particular component.
+   This is my personal fav approach since it seperates js and css into different files hence it makes it better structured and also we don't need to
+   install additional library like Styled components or Radium.
