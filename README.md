@@ -16,3 +16,7 @@ This is not a project. This is just for me to practice React concepts.
    you cannot use media queries, keyframes etc directly under the StyleRoot.( We wrap entire return code with StyleRoot). 
    So we need to put that media query, keyframes etc code in another component seperately. Check the following link for details
    Link: https://stackoverflow.com/questions/41446835/radium-error-please-wrap-your-application-in-the-styleroot-component/45203324#45203324
+
+4) Another alternative to Radium is Styled-components. One reason why developers would love Styled-components is that you dont have to worry
+   about the classNames. Styled components gives the unique classnames for your HTML and also you don't need to fear about your styled getting
+   overridden by another style. Styled components takes care of this for us. But I usually prefer external CSS modules. Which keeps the code more cleaner in my opinion.

@@ -3,6 +3,9 @@ import Person from "./Person/Person";
 import Button from "./Button/Button";
 import Styled from 'styled-components';
 
+/* Styled is imported from styled-components. It automatically gets props. Here we can add normal css. (Not the react vesion of CSS, but actual CSS.
+    But these are very less changes like we need  to add & before :hover which is not needed in actual CSS. But other than that it's pretty much normal CSS.
+    One important thing to notice is that Styled.anyHTML like Styled.p here. It returns a React component.) */
 const StyledP = Styled.p`
                     color: ${props => props.alt === 1 ? 'red' : 'green'};
                     &:hover {
@@ -139,7 +142,7 @@ class App extends Component {
                 <div>
                     {/* Here as you can see we just write {persons}. This is well organised compared to previous approach*/}
                     {persons}
-                    {/* <p style={style}>SOME RANDOM TEXT</p> */}
+                    {/* Note here that StyledP is a normal React component which is returned by Styled-components */}
                     <StyledP alt={this.state.persons.length}>SOME RANDOM TEXT</StyledP>
                     <Button onClickHandlerFunc={this.getFullNameHandler.bind(this, "Mr.")} buttonName="Get Full Name"/>
                     <Button onClickHandlerFunc={this.getShortNameHandler} buttonName="Get Short Name"/>
