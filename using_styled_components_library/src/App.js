@@ -1,7 +1,14 @@
 import React, { Component } from "react";
 import Person from "./Person/Person";
 import Button from "./Button/Button";
-import Radium, {StyleRoot} from "radium";
+import Styled from 'styled-components';
+
+const StyledP = Styled.p`
+                    color: ${props => props.alt === 1 ? 'red' : 'green'};
+                    &:hover {
+                        color: black;
+                    }
+                `
 
 class App extends Component {
 
@@ -101,16 +108,6 @@ class App extends Component {
     }
 
     render() {
-
-        const style = {
-            color: 'green',
-            //This hover can't be used just like that. We are able to do it here since we installed additional library 'radium'
-            ':hover': {
-                color: 'black',
-            }
-        };
-    
-
         /*Remember when the state changes, entire screen is rerendered. Hence this render function will run
         First thing it does here is assign persons to null. Then it checks if this.state.showPersons is true
         If true then it assigns the persons else it will stay null. */
@@ -136,28 +133,19 @@ class App extends Component {
                 </div>
             )
             
-            if(this.state.persons.length <4 || this.state.persons.length <1) {
-                //style is the styling constant creating just below render method
-                style.color = 'orange';
-            }
-
-            if(this.state.persons.length === 1) {
-                style.color = 'red';
-            }
         }
        
         return (
-            <StyleRoot>
                 <div>
                     {/* Here as you can see we just write {persons}. This is well organised compared to previous approach*/}
                     {persons}
-                    <p style={style}>SOME RANDOM TEXT</p>
+                    {/* <p style={style}>SOME RANDOM TEXT</p> */}
+                    <StyledP alt={this.state.persons.length}>SOME RANDOM TEXT</StyledP>
                     <Button onClickHandlerFunc={this.getFullNameHandler.bind(this, "Mr.")} buttonName="Get Full Name"/>
                     <Button onClickHandlerFunc={this.getShortNameHandler} buttonName="Get Short Name"/>
                     <Button onClickHandlerFunc={this.showHideHandler} buttonName="Show/Hide"/>
                 </div>
-            </StyleRoot>
         );
     }
 }
-export default Radium(App);
+export default App;

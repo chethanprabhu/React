@@ -1,18 +1,19 @@
 import React from 'react'
-import Radium from "radium";
+import Styled from 'styled-components';
 
 const Button = (props) => {
 
-    const button = {
-        //This code cannot be written in App.js. For more details check 3rd point in readme.md under Main folder "React"
-        '@media (min-width: 500px)': {
-            color: 'blue'
-        }
-    }
+    const StyledButton = Styled.button`
+                        &:hover {
+                            color: blue
+                        }
+            `
 
     return (   
-            <button style={button} onClick={props.onClickHandlerFunc}>{props.buttonName}</button>        
+            <StyledButton onClick={props.onClickHandlerFunc}>
+                {props.buttonName}
+            </StyledButton>       
     )
 }
 
-export default Radium(Button)
+export default Button;
