@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Person from "./Person/Person";
 import Button from "./Button/Button";
+import classes from "./App.module.css";
 
 class App extends Component {
 
@@ -126,13 +127,19 @@ class App extends Component {
             )
             
         }
+
+        let classAllowed = [classes.para];
        
+        if(this.state.persons.length === 1) {
+            classAllowed.push(classes.red);
+        }
+        
         return (
                 <div>
                     {/* Here as you can see we just write {persons}. This is well organised compared to previous approach*/}
                     {persons}
                     {/* Note here that StyledP is a normal React component which is returned by Styled-components */}
-                    <p>SOME RANDOM TEXT</p>
+                    <p className={classAllowed.join(" ")}>SOME RANDOM TEXT</p>
                     <Button onClickHandlerFunc={this.getFullNameHandler.bind(this, "Mr.")} buttonName="Get Full Name"/>
                     <Button onClickHandlerFunc={this.getShortNameHandler} buttonName="Get Short Name"/>
                     <Button onClickHandlerFunc={this.showHideHandler} buttonName="Show/Hide"/>
