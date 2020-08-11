@@ -1,0 +1,11 @@
+.para {
+    color: green;
+    font-size: 30px;
+    border: 1px solid red;
+}
+
+.red {
+    color: red;
+}
+
+/* CSS modules are special type of files where the styling is applied only to that particular component */
