@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import Person from "./Person/Person";
-import Button from "../Button/Button";
-import classes from "./App.module.css";
+import Persons from  "../Components/Persons/Persons"
+import CockPit from "../Components/CockPit/CockPit"
 
 class App extends Component {
 
@@ -92,6 +91,7 @@ class App extends Component {
     }
 
     deleteOnClickHandler = (index) => {
+        console.log(this);
         /*this.state.person returns an array. Now since arrays are reference types. This will point to exact same location as original state
         Hence, we use spread operator to give a fresh location*/
         const persons = [...this.state.persons]
@@ -108,40 +108,16 @@ class App extends Component {
 
         if(this.state.showPersons) {
             persons = (
-                <div>
-                    {this.state.persons.map((el, index) => {
-                        return <Person 
-                                name={el.name}
-                                age={el.age}
-                                /*key is important to uniquely identify an element. So that the render function can only render that particular
-                                element and not the entire DOM.*/
-                                key={el.id}
-                                onClick={this.deleteOnClickHandler.bind(this, index)}
-                                /*so the onChange on person return as event. Earlier our updateNameHandler was getting this automatically
-                                But since we have this arrow function here. Hence the onChange returns the event object to this function and
-                                not the updateNameHandler function. So we manually need to pass this event to our updateNameHandler.*/
-                                onEdit={(e) => {this.updateNameHandler(e, el.id)}}
-                               />
-                    })}
-                </div>
+                <Persons persons={this.state.persons} onClick={this.deleteOnClickHandler} onEdit={this.updateNameHandler}/>
             )
             
-        }
-
-        let classAllowed = [classes.para];
-        
-        if(this.state.persons.length === 1) {
-            classAllowed.push(classes.red);
         }
         
         return (
                 <div>
                     {/* Here as you can see we just write {persons}. This is well organised compared to previous approach*/}
                     {persons}
-                    <p className={classAllowed.join(" ")}>SOME RANDOM TEXT</p>
-                    <Button onClickHandlerFunc={this.getFullNameHandler.bind(this, "Mr.")} buttonName="Get Full Name"/>
-                    <Button onClickHandlerFunc={this.getShortNameHandler} buttonName="Get Short Name"/>
-                    <Button onClickHandlerFunc={this.showHideHandler} buttonName="Show/Hide"/>
+                    <CockPit fullName={this.getFullNameHandler} shortName={this.getShortNameHandler} showHide={this.showHideHandler} />
                 </div>
         );
     }
