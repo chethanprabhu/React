@@ -7,8 +7,8 @@ const App = () => {
 	React.useEffect(() => {
 		console.log("rendering only once")
 		inputRef.current.focus();
-		inputRef.current.value = "chethan";
-		inputRef.current.style.color = 'red';
+		inputRef.current.value = "chethan";//not recommended way. Just for example
+		inputRef.current.style.color = 'red';//not recommended way. Just for example
 	})
 
 	return (
