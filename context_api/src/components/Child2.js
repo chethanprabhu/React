@@ -1,9 +1,17 @@
 import React from 'react';
+import {NameComponent} from '../App'
 
 const Child2 = (props) => {
     return (
         <div>
-            <h1>This Child 2: {props.name}</h1>
+            <NameComponent.Consumer>
+                {(name) => {
+                    return (
+                        <h1>This Child 2: {name} </h1>
+                    )
+                }}
+            </NameComponent.Consumer>
+           
         </div>
     )
 }
