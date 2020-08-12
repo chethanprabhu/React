@@ -5,7 +5,10 @@ const App = () => {
 	
 	console.log(inputRef)
 	React.useEffect(() => {
-		inputRef.current = inputRef.current.value;
+		console.log("rendering only once")
+		inputRef.current.focus();
+		inputRef.current.value = "chethan";
+		inputRef.current.style.color = 'red';
 	})
 
 	return (
