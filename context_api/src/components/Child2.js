@@ -1,17 +1,18 @@
-import React from 'react';
-import {NameComponent} from '../App'
+import React, { useContext } from 'react';
+import {NameComponent, PasswordComponent} from '../App'
+
+
 
 const Child2 = (props) => {
+    const name = useContext(NameComponent);
+    const password = useContext(PasswordComponent);
+    console.log(name);
+
     return (
         <div>
-            <NameComponent.Consumer>
-                {(name) => {
-                    return (
-                        <h1>This Child 2: {name} </h1>
-                    )
-                }}
-            </NameComponent.Consumer>
-           
+            <h1>{name.name}</h1>
+            <h1>{name.age}</h1>
+            <h1>{password}</h1>
         </div>
     )
 }
