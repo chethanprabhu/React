@@ -18,7 +18,6 @@ const App = () => {
 					<Child1 />
 				</PasswordComponent.Provider>
 			</NameComponent.Provider>
-			
 		</div>
 	)
 }
