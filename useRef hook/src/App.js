@@ -1,19 +1,22 @@
-import React, { useRef } from 'react'
+import React, { useState, useRef } from 'react'
 
 const App = () => {
-	const inputRef = useRef(null);
+	const data = useRef(0);
+	const [name, setName] = useState("");
 	
-	console.log(inputRef)
+	// console.log(inputRef)
 	React.useEffect(() => {
-		console.log("rendering only once")
-		inputRef.current.focus();
-		inputRef.current.value = "chethan";//not recommended way. Just for example
-		inputRef.current.style.color = 'red';//not recommended way. Just for example
+		if(name[(name.length - 1)] === "a") {
+			data.current = data.current + 1;
+		}
 	})
 
 	return (
 		<div>	
-			<input ref={inputRef} type="text" placeholder="Enter the text" />
+			<h3>'a' was repeated: {data.current - 1} times</h3>
+			<input onChange={(e) => {
+				setName(e.target.value)
+				}} type="text" />
 		</div>
 	)
 
