@@ -1,10 +1,18 @@
 import React from 'react'
+import PropTypes from "prop-types";
 
-const person = (props) => {
+const Person = (props) => {
     return (
-        <p>{`Hi! My name is ${props.myProp.name} and I am ${props.myProp.age} old. I am working as a ${props.myProp.designation}
-            in ${props.myProp.companyName}.`}</p>
+        <p>{`Hi! My name is ${props.name} and I am ${props.age} old. I am working as a ${props.designation}
+            in ${props.companyName}.`}</p>
     )
 }
 
-export default person
+Person.propTypes  = {
+    name: PropTypes.string,
+    age: PropTypes.number,
+    companyName: PropTypes.string,
+    designation: PropTypes.string
+}
+
+export default Person

@@ -5,7 +5,7 @@ class App extends Component {
 
     state = {
         name: "Chethan",
-        age: 23,
+        age: "23",
         companyName: "Verisk Financial Fintellix",
         designation: "Full stack Web developer"
     }
@@ -13,7 +13,8 @@ class App extends Component {
     render() {
         return (
             <React.Fragment>
-                <Person myProp={this.state}/>
+                <Person name={this.state.name} age={this.state.age} companyName={this.state.companyName} 
+                    designation={this.state.designation}/>
             </React.Fragment>
         )
     }
