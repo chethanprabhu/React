@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import Button from "./Button";
 import Hoc from "./hoc/redBorderHOC"
+import classes from "./style.module.css"
 
 class App extends Component {
 
@@ -10,12 +11,12 @@ class App extends Component {
 
     render() {
         return (
-            <Hoc>
+            <React.Fragment>
                 <Button buttonName={this.state.buttonName}/>
                 <Button buttonName={this.state.buttonName}/>
-            </Hoc>
+            </React.Fragment>
         )
     }
 }
 
-export default App;
+export default Hoc(App, classes.app);

@@ -1,11 +1,14 @@
 import React from "react"
-import classes from "../style.module.css"
 
-const redBorderHOC = (props) => {
+const redBorderHOC = (WrapperComponent, nameOfClass) => {
     return (
-        <div className={classes.app}>
-            {props.children}
-        </div>
+        () => {
+            return (
+                <div className={nameOfClass}>
+                    <WrapperComponent />
+                </div>
+            )
+        }
     )
 }
 
