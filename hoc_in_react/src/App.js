@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import Button from "./Button";
-import classes from "./style.module.css"
+import Hoc from "./hoc/redBorderHOC"
 
 class App extends Component {
 
@@ -10,10 +10,10 @@ class App extends Component {
 
     render() {
         return (
-            <div className={classes.app}>
+            <Hoc>
                 <Button buttonName={this.state.buttonName}/>
                 <Button buttonName={this.state.buttonName}/>
-            </div>
+            </Hoc>
         )
     }
 }
