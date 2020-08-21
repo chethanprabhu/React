@@ -1,6 +1,6 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent, Component } from "react";
 
-class Input extends PureComponent {
+class Input extends Component {
 
     //   componentDidMount = (nextProp, nextState) => {
     //     console.log("Input - component did mount");
@@ -15,16 +15,17 @@ class Input extends PureComponent {
     //         return true;
     //     }
     //   }
-
-      componentDidUpdate = (prevProp, PrevState) => {
-        console.log("Input - component did update");
-        console.log(prevProp);
-        console.log(PrevState);
+      shouldComponentUpdate(nextProp) {
+        console.log(nextProp);
+        console.log(this.props);
+        console.log(nextProp === this.props);
+        return true
       }
 
     render() {
         return (
             <React.Fragment>
+                {console.log("will this run? hope not")}
                 <h2>{this.props.state}</h2>
                 <input onChange={this.props.onEdit}></input>
             </React.Fragment>

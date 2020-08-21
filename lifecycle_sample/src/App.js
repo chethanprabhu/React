@@ -23,14 +23,12 @@ class App extends Component {
 
   onEditHandler = (event) => {
     this.setState({
-      ...this.state,
       name: event.target.value
     })
   }
 
   onPressHandler = () => {
     this.setState({
-      ...this.state,
       buttonName: this.state.buttonName === "1" ? "2" : "1"
     })
   }
