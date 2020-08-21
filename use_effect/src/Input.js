@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { memo, useEffect } from "react";
 
 const Input = (props) => {
 
@@ -15,4 +15,4 @@ const Input = (props) => {
 }
 
 
-export default React.memo(Input);
+export default memo(Input);

@@ -1,32 +1,40 @@
-import React, {useState} from 'react'
+import React, { Component} from 'react'
 import Input from "./Input";
 import Button from "./Button";
 
-const App = () => {
+class App extends Component {
+  state= {
+    name: "",
+    button: {
+      buttonName: "1"
+    }
+  }
 
-  const [state, setState] = useState({name: "", buttonName: "1"})
-
-  const onEditHandler = (event) => {
-    setState({
-      ...state,
+  onEditHandler = (event) => {
+    this.setState({
       name: event.target.value
     })
   }
 
-  const onPressHandler = () => {
-    setState({
-      ...state,
-      buttonName: state.buttonName === "1" ? "2" : "1"
+  onPressHandler = () => {
+    this.setState({
+      button: this.state.button.buttonName === "1" ? {
+        buttonName: "2"
+      } : {
+        buttonName: "1"
+      }
     })
   }
 
-  return (
-    <React.Fragment>
-        <h1>{state.name}</h1>
-        <Input state={state.name} onEdit={(event) => onEditHandler(event)}/>
-        <Button state2={state.buttonName} onPress={onPressHandler}/>
-      </React.Fragment>
-  )
+  render() {
+    return (
+      <React.Fragment>
+          <h1>{this.state.name}</h1>
+          <Input state={this.state.name} onEdit={(event) => this.onEditHandler(event)}/>
+          <Button state2={this.state.button.buttonName} onPress={this.onPressHandler}/>
+        </React.Fragment>
+    )
+  }
 }
 
 export default App
