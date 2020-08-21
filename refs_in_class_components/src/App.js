@@ -23,3 +23,19 @@ class App extends Component {
 }
 
 export default App;
+
+// const App = () => {
+
+//     const myRef = useRef();
+
+//     useEffect(() => {
+//         myRef.current.click();
+//     }, [])
+//     const clickHandler = () => {
+//         console.log("button was clicked");
+//     }
+
+//     return (
+//         <button ref={myRef} onClick={clickHandler}>HIT ME</button>
+//     )
+// }
