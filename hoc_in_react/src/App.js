@@ -18,5 +18,5 @@ class App extends Component {
         )
     }
 }
-
+/*It is not madate to pass classes.app from here. You can import that class from hoc as well */
 export default Hoc(App, classes.app);
