@@ -1,22 +1,17 @@
 import React, { useState } from 'react'
 import Child1 from ".//components/Child1"
-
-export const NameComponent = React.createContext();
-export const PasswordComponent = React.createContext();
+import {NameComponent} from "./context"
 
 const App = () => {
 	const [name , setName] = useState({
-		name: "chethan",
+		name: "Eagle",
 		age: 23
 	});
-	const [password, setPassword] = useState(12345);
 
 	return (
 		<div>
-			<NameComponent.Provider value={name} >
-				<PasswordComponent.Provider value={password}>
+			<NameComponent.Provider value={name} >	
 					<Child1 />
-				</PasswordComponent.Provider>
 			</NameComponent.Provider>
 		</div>
 	)
